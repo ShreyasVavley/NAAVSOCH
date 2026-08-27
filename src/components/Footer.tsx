@@ -97,6 +97,8 @@ export default function Footer() {
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="/framework" className="hover:text-white transition-colors">Framework</Link></li>
               <li><Link href="/work" className="hover:text-white transition-colors">Our Work</Link></li>
+              <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </motion.div>
 
@@ -104,13 +106,13 @@ export default function Footer() {
           <motion.div variants={itemVariants}>
             <h4 className="text-white font-bold mb-6 tracking-widest uppercase text-xs">Services</h4>
             <ul className="space-y-4 text-sm text-white/60 flex flex-col">
-              <Link href="/#services" className="hover:text-white transition-colors">Website & Digital Systems</Link>
-              <Link href="/#services" className="hover:text-white transition-colors">Branding & Identity</Link>
-              <Link href="/#services" className="hover:text-white transition-colors">Social Media Management</Link>
-              <Link href="/#services" className="hover:text-white transition-colors">Performance Marketing</Link>
-              <Link href="/#services" className="hover:text-white transition-colors">Creative Production</Link>
-              <Link href="/#services" className="hover:text-white transition-colors">Business Growth Systems</Link>
-              <Link href="/#services" className="hover:text-white transition-colors">Local Business Growth</Link>
+              <Link href="/services" className="hover:text-white transition-colors">Website & Digital Systems</Link>
+              <Link href="/services" className="hover:text-white transition-colors">Branding & Identity</Link>
+              <Link href="/services" className="hover:text-white transition-colors">Social Media Management</Link>
+              <Link href="/services" className="hover:text-white transition-colors">Performance Marketing</Link>
+              <Link href="/services" className="hover:text-white transition-colors">Creative Production</Link>
+              <Link href="/services" className="hover:text-white transition-colors">Business Growth Systems</Link>
+              <Link href="/services" className="hover:text-white transition-colors">Local Business Growth</Link>
             </ul>
           </motion.div>
 
@@ -119,8 +121,8 @@ export default function Footer() {
             <h4 className="text-white font-bold mb-6 tracking-widest uppercase text-xs">Reach Out</h4>
             <ul className="space-y-4 text-sm text-white/60 mb-8">
               <li>
-                <a href="mailto:hello@naavsoch.com" className="hover:text-white transition-colors flex items-center gap-2">
-                  hello@naavsoch.com
+                <a href="mailto:workatnaavsoch@gmail.com" className="hover:text-white transition-colors flex items-center gap-2">
+                  workatnaavsoch@gmail.com
                 </a>
               </li>
               <li>
