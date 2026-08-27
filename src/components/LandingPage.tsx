@@ -137,12 +137,12 @@ export default function LandingPage() {
         
         {/* Top Marquee (Fast, Left) */}
         <div className="flex whitespace-nowrap text-5xl md:text-8xl font-black tracking-tighter animate-marqueeLeft">
-          {Array(8).fill("DESIGN âœ¦ DEVELOP âœ¦ BRAND âœ¦ GROW âœ¦ SCALE âœ¦ ").map((text, i) => (
+          {Array(8).fill("DESIGN ✦ DEVELOP ✦ BRAND ✦ GROW ✦ SCALE ✦ ").map((text, i) => (
             <span key={i} className="mx-8 text-white">
-              {text.split('âœ¦').map((word: string, j: number, arr: string[]) => (
+              {text.split('✦').map((word: string, j: number, arr: string[]) => (
                 <span key={j}>
                   {word}
-                  {j < arr.length - 1 && <span className="text-naavsoch-blue mx-8">âœ¦</span>}
+                  {j < arr.length - 1 && <span className="text-naavsoch-blue mx-8">✦</span>}
                 </span>
               ))}
             </span>
@@ -151,12 +151,12 @@ export default function LandingPage() {
 
         {/* Bottom Marquee (Slow, Right) - Tool Stack */}
         <div className="flex whitespace-nowrap text-3xl md:text-5xl font-black tracking-tighter animate-marqueeRight">
-          {Array(10).fill("FIGMA âœ¦ NEXT.JS âœ¦ VERCEL âœ¦ META âœ¦ STRIPE âœ¦ SHOPIFY âœ¦ FRAMER âœ¦ AWS âœ¦ ").map((text, i) => (
+          {Array(10).fill("FIGMA ✦ NEXT.JS ✦ VERCEL ✦ META ✦ STRIPE ✦ SHOPIFY ✦ FRAMER ✦ AWS ✦ ").map((text, i) => (
             <span key={i} className="mx-4 text-white/5 hover:text-white/20 transition-colors duration-300">
-              {text.split('âœ¦').map((word: string, j: number, arr: string[]) => (
+              {text.split('✦').map((word: string, j: number, arr: string[]) => (
                 <span key={j}>
                   {word}
-                  {j < arr.length - 1 && <span className="text-white/10 mx-4">âœ¦</span>}
+                  {j < arr.length - 1 && <span className="text-white/10 mx-4">✦</span>}
                 </span>
               ))}
             </span>
