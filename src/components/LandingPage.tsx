@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, Variants, useScroll, useTransform } from "framer-motion";
+import { motion, Variants, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import TextReveal from "./TextReveal";
 import Link from "next/link";
@@ -235,9 +235,9 @@ export default function LandingPage() {
 
           <motion.div 
             layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {work
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <AnimatePresence mode="popLayout">
+              {work
               .filter(item => activeFilter === "ALL" || item.category === activeFilter)
               .map((item) => (
                 <motion.div 
@@ -264,8 +264,9 @@ export default function LandingPage() {
                     </Link>
                   </div>
                 </motion.div>
-              ))}
-          </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
         </div>
       </section>
 
