@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: black; /* Deep black */
+  --foreground: #f0f0f0; /* Off-white */
+  
+  --naavsoch-gold: #DDA248; /* Gold color from logo */
+  --naavsoch-blue: #407BFF; /* Blue color from logo */
+}
+
+body {
+  color: var(--foreground);
+  background: transparent;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .clay-card-dark {
+    background: #0A0A0A;
+    border-radius: 1.5rem;
+    box-shadow: 
+      inset 2px 2px 6px rgba(255, 255, 255, 0.05),
+      inset -4px -4px 8px rgba(0, 0, 0, 0.5),
+      8px 8px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .clay-card-dark:hover {
+    box-shadow: 
+      inset 4px 4px 10px rgba(255, 255, 255, 0.08),
+      inset -6px -6px 12px rgba(0, 0, 0, 0.6),
+      12px 12px 30px rgba(64, 123, 255, 0.15);
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes marqueeLeft {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marqueeRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+.animate-marqueeLeft {
+  animation: marqueeLeft 15s linear infinite;
+}
+.animate-marqueeRight {
+  animation: marqueeRight 25s linear infinite;
+}
+
+
+@keyframes float {
+  0%, 100% { transform: translate(0%, 0%) scale(1); }
+  25% { transform: translate(15%, 20%) scale(1.2); }
+  50% { transform: translate(-10%, -15%) scale(0.9); }
+  75% { transform: translate(-5%, 10%) scale(1.1); }
+}
+@keyframes floatReverse {
+  0%, 100% { transform: translate(0%, 0%) scale(1); }
+  25% { transform: translate(-25%, -15%) scale(0.8); }
+  50% { transform: translate(15%, 30%) scale(1.1); }
+  75% { transform: translate(10%, -20%) scale(0.9); }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes spinReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
