@@ -10,19 +10,6 @@ const InstagramIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const LinkedinIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-    <rect width="4" height="12" x="2" y="9"/>
-    <circle cx="4" cy="4" r="2"/>
-  </svg>
-);
-
-const TwitterIcon = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
-  </svg>
-);
 
 const WhatsappIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" className={className}>
@@ -66,25 +53,28 @@ export default function Footer() {
           
           {/* Column 1: Brand */}
           <motion.div variants={itemVariants} className="lg:pr-8">
-            <Link href="/" className="flex items-center gap-4 mb-6 group">
-              <Image src="/logo-v2.png" alt="Naavsoch Logo" width={56} height={56} className="object-contain opacity-90 group-hover:scale-105 transition-transform" />
-              <div className="flex items-center gap-1 font-serif text-2xl tracking-widest">
-                <span className="font-normal text-white">NAAVSOCH</span>
-              </div>
+            <Link href="/" className="flex items-center mb-6 group">
+              <Image 
+                src="/logo-horizontal.png" 
+                alt="Naavsoch Studios Logo" 
+                width={260} 
+                height={48} 
+                className="h-8 lg:h-10 w-auto object-contain group-hover:scale-105 transition-transform" 
+              />
             </Link>
             <p className="text-white/50 text-sm leading-relaxed mb-8">
               We build brands that lead. Strategy, creativity, technology, and intelligence.
             </p>
             
             <div className="flex gap-4">
-              <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-colors">
+              <a 
+                href="https://www.instagram.com/naavsoch?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Instagram" 
+                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-colors"
+              >
                 <InstagramIcon className="w-4 h-4 text-white/70 hover:text-white" />
-              </a>
-              <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-colors">
-                <LinkedinIcon className="w-4 h-4 text-white/70 hover:text-white" />
-              </a>
-              <a href="#" aria-label="Twitter" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-colors">
-                <TwitterIcon className="w-4 h-4 text-white/70 hover:text-white" />
               </a>
             </div>
           </motion.div>
@@ -150,17 +140,18 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Floating WhatsApp Button */}
-      <div className="fixed bottom-6 right-6 z-[100] group">
+      {/* Floating WhatsApp Button - Optimized for Android & iOS */}
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[90] group">
         <div className="absolute inset-0 bg-[#25D366] rounded-full blur opacity-40 group-hover:opacity-60 transition-opacity duration-300" />
         <a 
           href="https://wa.me/919663382836" 
           target="_blank" 
           rel="noreferrer" 
-          className="relative bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold py-3 px-5 rounded-full flex items-center gap-2 shadow-xl shadow-[#25D366]/20 transition-all duration-300 hover:scale-110 active:scale-95"
+          aria-label="Chat with us on WhatsApp"
+          className="relative bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold p-3.5 sm:py-3 sm:px-5 rounded-full flex items-center justify-center gap-2 shadow-xl shadow-[#25D366]/20 transition-all duration-300 hover:scale-105 active:scale-95 touch-manipulation min-w-[48px] min-h-[48px]"
         >
-          <WhatsappIcon className="w-5 h-5 fill-current" />
-          Chat with us
+          <WhatsappIcon className="w-5 h-5 fill-current shrink-0" />
+          <span className="hidden sm:inline text-sm font-bold tracking-wide">Chat with us</span>
         </a>
       </div>
     </footer>

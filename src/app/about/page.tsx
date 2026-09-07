@@ -47,7 +47,7 @@ export default function AboutPage() {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mt-24">
           <div className="text-center mb-16">
             <p className="text-[10px] tracking-[0.3em] text-white/40 uppercase font-bold mb-6">The Difference</p>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black leading-[1.1] tracking-tighter">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black leading-[1.18] tracking-tight">
               Why Businesses<br/>
               Switch to <span className="text-naavsoch-gold">NaavSoch.</span>
             </h2>

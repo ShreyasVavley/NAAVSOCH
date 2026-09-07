@@ -1,17 +1,32 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { Tenor_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+};
 
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const tenorSans = Tenor_Sans({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-tenor",
+  display: "swap",
 });
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -23,8 +38,16 @@ export const metadata: Metadata = {
   description: "Strategy. Creativity. Technology. Growth. We help ambitious brands build authority, attract customers and scale through branding, content, websites and performance.",
   metadataBase: new URL('https://naavsoch.com'),
   icons: {
-    icon: '/logo-v2.png',
-    apple: '/logo-v2.png',
+    icon: '/logo-mark.png',
+    apple: '/logo-mark.png',
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "NaavSoch Studio",
+  },
+  formatDetection: {
+    telephone: false,
   },
   openGraph: {
     title: "NaavSoch Studio | We Build Brands People Remember",
@@ -50,7 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-transparent`}
+        className={`${tenorSans.variable} ${plusJakartaSans.variable} ${geistMono.variable} font-sans antialiased min-h-screen flex flex-col bg-transparent`}
       >
         <NextTopLoader 
           color="#407BFF"
@@ -64,11 +87,11 @@ export default function RootLayout({
           shadow="0 0 10px #407BFF,0 0 5px #407BFF"
         />
         
-          <div className="fixed inset-0 z-[-1] bg-black" />
-          <ScrollProgress />
-          <Header />
-          <main className="flex-grow flex flex-col">{children}</main>
-          <Footer />
+        <div className="fixed inset-0 z-[-1] bg-black" />
+        <ScrollProgress />
+        <Header />
+        <main className="flex-grow flex flex-col">{children}</main>
+        <Footer />
         
       </body>
     </html>

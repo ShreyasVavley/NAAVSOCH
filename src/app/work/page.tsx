@@ -62,7 +62,7 @@ export default function WorkPage() {
             </p>
           </div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1.05] tracking-tighter mb-8">
+          <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1.18] tracking-tight mb-8">
             Real Results.<br className="hidden md:block"/>
             <span className="text-blue-500">Real Businesses.</span>
           </h1>

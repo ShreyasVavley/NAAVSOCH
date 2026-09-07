@@ -88,8 +88,8 @@ export default function AssessmentPage() {
                 <Target className="w-3.5 h-3.5 text-naavsoch-gold" />
                 <span className="text-[10px] font-bold tracking-[0.2em] text-naavsoch-gold uppercase">Proprietary Tool</span>
               </div>
-              <h1 className="text-5xl md:text-7xl font-black mb-6 leading-[1.1] tracking-tighter">
-                DIGITAL GROWTH <span className="text-blue-500">SCOREÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢</span>
+              <h1 className="text-5xl md:text-7xl font-black mb-6 leading-[1.18] tracking-tight">
+                DIGITAL GROWTH <span className="text-blue-500">SCORE™</span>
               </h1>
               <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-12">
                 Evaluate your brand&apos;s digital maturity across 5 critical dimensions: Brand, Positioning, Website, Content, and Lead Generation.
@@ -170,7 +170,7 @@ export default function AssessmentPage() {
                   </div>
 
                   <h2 className="text-[10px] tracking-[0.3em] font-bold text-white/40 uppercase mb-4">Your Growth Score</h2>
-                  <div className="text-8xl md:text-[120px] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white to-white/40 mb-8">
+                  <div className="text-8xl md:text-[120px] font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-white/40 mb-8">
                     {score}<span className="text-4xl text-white/20">/100</span>
                   </div>
 

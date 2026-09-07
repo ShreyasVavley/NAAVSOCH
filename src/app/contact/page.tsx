@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
-import { Mail, Phone, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
+import { submitContactForm } from "@/app/actions/contact";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -19,17 +20,28 @@ const staggerContainer: Variants = {
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulating API call for demonstration of the Thank You experience
-    setTimeout(() => {
+    setError(null);
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      const res = await submitContactForm(null, formData);
+      if (res && res.error) {
+        setError(res.error);
+        setIsSubmitting(false);
+      } else {
+        setIsSubmitting(false);
+        setSuccess(true);
+      }
+    } catch {
+      setError("An unexpected error occurred. Please try again or reach out on WhatsApp.");
       setIsSubmitting(false);
-      setSuccess(true);
-    }, 500);
+    }
   };
 
   return (
@@ -51,7 +63,7 @@ export default function ContactPage() {
                 initial="hidden" animate="visible" variants={staggerContainer} 
                 className="flex flex-col justify-center"
               >
-                <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-black mb-8 leading-[1.05] tracking-tighter">
+                <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-black mb-8 leading-[1.18] tracking-tight">
                   LET&apos;S BUILD SOMETHING <br/> <span className="text-blue-500">WORTH REMEMBERING.</span>
                 </motion.h1>
                 <motion.p variants={fadeUp} className="text-lg md:text-xl text-white/60 font-light max-w-md mb-12 leading-relaxed">
@@ -89,6 +101,12 @@ export default function ContactPage() {
                 className="bg-[#0A0A0A] p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl relative"
               >
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {error && (
+                    <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl flex items-center gap-3 text-red-400 text-sm">
+                      <AlertCircle className="w-5 h-5 shrink-0" />
+                      <span>{error}</span>
+                    </div>
+                  )}
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">

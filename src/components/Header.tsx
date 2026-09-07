@@ -49,14 +49,15 @@ export default function Header() {
         <div className="w-full md:w-[95%] max-w-[1400px] bg-white/5 backdrop-blur-3xl border border-white/10 rounded-full px-4 lg:px-5 xl:px-6 py-3 lg:py-3.5 xl:py-4 flex items-center justify-between shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]">
           
           {/* Left: Logo Lockup */}
-          <Link href="/" className="flex items-center gap-3 xl:gap-4 relative z-50 group shrink-0">
-            <div className="w-10 h-10 lg:w-12 lg:h-12 xl:w-14 xl:h-14 bg-[black] rounded-lg md:rounded-xl xl:rounded-2xl flex items-center justify-center border border-white/10 overflow-hidden shadow-inner">
-              <Image src="/logo-v2.png" alt="Naavsoch Studio Logo" width={40} height={40} className="object-contain opacity-90 group-hover:scale-110 transition-transform duration-500 w-6 h-6 lg:w-8 lg:h-8 xl:w-9 xl:h-9" />
-            </div>
-            <div className="hidden lg:flex items-center gap-1.5 xl:gap-2 font-serif text-base xl:text-xl tracking-wider xl:tracking-widest">
-              <span className="font-normal text-white">NAAVSOCH</span>
-              <span className="font-light text-white/50">STUDIOS</span>
-            </div>
+          <Link href="/" className="flex items-center relative z-50 group shrink-0">
+            <Image 
+              src="/logo-horizontal.png" 
+              alt="Naavsoch Studios" 
+              width={260} 
+              height={48} 
+              priority
+              className="h-7 sm:h-8 lg:h-9 xl:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+            />
           </Link>
           
           {/* Center: Desktop Nav */}
@@ -80,9 +81,9 @@ export default function Header() {
                </Link>
             </div>
 
-            {/* Mobile Hamburger Toggle */}
+            {/* Mobile Hamburger Toggle - 44px HIG target */}
             <button 
-              className="lg:hidden p-3 text-white relative z-50 rounded-full bg-white/5 border border-white/10"
+              className="lg:hidden w-11 h-11 text-white relative z-50 rounded-full bg-white/5 border border-white/10 flex items-center justify-center touch-manipulation active:scale-95 active:bg-white/15 transition-all"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle Menu"
             >
@@ -93,19 +94,32 @@ export default function Header() {
       </motion.header>
 
       {/* Mobile Dropdown Nav */}
-      <div className={`lg:hidden fixed inset-0 bg-[black] z-40 transition-transform duration-500 ease-in-out ${isOpen ? 'translate-y-0' : '-translate-y-full'} flex flex-col items-center justify-center gap-8`}>
-        {links.map((link) => (
-          <Link 
-            key={link.href} 
-            href={link.href} 
-            onClick={() => setIsOpen(false)}
-            className={`text-2xl font-bold tracking-widest uppercase transition-colors hover:text-white ${pathname === link.href ? 'text-white' : 'text-white/60'}`}
-          >
-            {link.label}
-          </Link>
-        ))}
-        <div className="mt-8" onClick={() => setIsOpen(false)}>
-           <Link href="/contact" className="px-8 py-4 rounded-full bg-gradient-to-r from-[#407BFF] to-[#3060E0] text-white font-bold tracking-wide hover:brightness-110 shadow-lg shadow-blue-500/20 transition-all">Start Project</Link>
+      <div 
+        className={`lg:hidden fixed inset-0 bg-black/95 backdrop-blur-2xl z-40 transition-all duration-500 ease-in-out ${
+          isOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-full'
+        } flex flex-col items-center justify-center gap-6 px-6 pt-24 pb-12 overflow-y-auto`}
+      >
+        <div className="flex flex-col items-center gap-4 w-full max-w-xs">
+          {links.map((link) => (
+            <Link 
+              key={link.href} 
+              href={link.href} 
+              onClick={() => setIsOpen(false)}
+              className={`text-xl sm:text-2xl font-display tracking-[0.2em] uppercase transition-colors py-2 px-4 rounded-xl text-center w-full touch-manipulation ${
+                pathname === link.href ? 'text-white bg-white/10' : 'text-white/60 hover:text-white hover:bg-white/5 active:bg-white/10'
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+        <div className="mt-4 w-full max-w-xs" onClick={() => setIsOpen(false)}>
+           <Link 
+             href="/contact" 
+             className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#407BFF] to-[#3060E0] text-white font-bold tracking-wide hover:brightness-110 shadow-lg shadow-blue-500/20 transition-all flex items-center justify-center touch-manipulation active:scale-95"
+           >
+             Start Project
+           </Link>
         </div>
       </div>
     </>

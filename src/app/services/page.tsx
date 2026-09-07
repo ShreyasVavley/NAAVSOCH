@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
@@ -22,7 +22,7 @@ const services = [
     icon: Camera, 
     title: "Social Media & Content", 
     desc: "Complete social media management that builds engaged communities.", 
-    list: ["Content Strategy", "Content Calendar", "Reels Creation", "Static Posts", "Community Management", "Social Media Audits"] 
+    list: ["Content Strategy", "Content Calendar", "Short-Form Video", "Static Posts", "Community Management", "Social Media Audits"] 
   },
   { 
     icon: Monitor, 
@@ -40,7 +40,7 @@ const services = [
     icon: Rocket, 
     title: "Creative Production", 
     desc: "Premium visual content that captures attention and drives engagement.", 
-    list: ["Product Photography", "Product Videography", "Reels Production", "Motion Graphics", "Promotional Films", "Corporate Videos"] 
+    list: ["Product Photography", "Product Videography", "Video Production", "Motion Graphics", "Promotional Films", "Corporate Videos"] 
   },
   { 
     icon: Briefcase, 
@@ -86,7 +86,7 @@ export default function ServicesPage() {
         >
           <div>
             <p className="text-[10px] tracking-[0.3em] text-white/40 uppercase font-bold mb-6">Our Services</p>
-            <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1.1] tracking-tighter">
+            <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1.18] tracking-tight">
               A to Z Digital<br/>
               <span className="text-blue-500">Solutions.</span>
             </h1>
@@ -166,7 +166,7 @@ export default function ServicesPage() {
         >
           <div className="text-center mb-16">
             <p className="text-[10px] tracking-[0.3em] text-white/40 uppercase font-bold mb-6">Who We Help</p>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black leading-[1.1] tracking-tighter">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-black leading-[1.18] tracking-tight">
               Industries We <span className="text-naavsoch-gold">Dominate.</span>
             </h2>
           </div>

@@ -59,7 +59,7 @@ export default function FrameworkPage() {
           className="text-center mb-24 mt-10"
         >
           <p className="text-[10px] md:text-xs tracking-[0.3em] text-naavsoch-gold font-bold uppercase mb-6">Proprietary System</p>
-          <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1.05] tracking-tighter mb-8">
+          <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1.18] tracking-tight mb-8">
             The NaavSoch Growth<br className="hidden md:block"/>
             <span className="text-blue-500">Framework™</span>
           </h1>

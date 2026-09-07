@@ -76,7 +76,7 @@ export default function FutureLabPage() {
             <Cpu className="w-4 h-4 text-naavsoch-blue" />
             NAAVSOCH FUTURE LAB™
           </p>
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-[1.1] tracking-tighter">
+          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-[1.18] tracking-tight">
             Ideas, Intelligence <br className="hidden md:block"/>
             <span className="text-naavsoch-blue">& What&apos;s Next.</span>
           </h1>
@@ -254,7 +254,7 @@ export default function FutureLabPage() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
 
           <div className="max-w-3xl mb-16 relative z-10">
-            <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tighter">
+            <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight">
               NAAVSOCH INTELLIGENCE ENGINE™
             </h2>
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-6 text-xs font-bold tracking-widest uppercase">

@@ -24,11 +24,11 @@ export default function Template({ children }: { children: React.ReactNode }) {
           transition={{ duration: 0.8, ease, delay: 0 }}
         >
           <Image 
-            src="/logo-v2.png" 
+            src="/logo-full.png" 
             alt="Naavsoch Logo" 
-            width={120} 
-            height={120} 
-            className="opacity-90"
+            width={200} 
+            height={200} 
+            className="w-40 h-40 md:w-52 md:h-52 object-contain opacity-95 drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]"
             priority
           />
         </motion.div>

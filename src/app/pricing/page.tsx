@@ -35,8 +35,8 @@ export default function PricingPage() {
       tag: "SOCIAL MEDIA GROWTH",
       title: "Monthly Retainer",
       sub: "ONGOING PARTNERSHIP",
-      desc: "Daily content, reels, design and community growth — your full social engine.",
-      bullets: ["Strategy & content calendar", "Reels production", "Design & captions", "Community management", "Monthly performance review"],
+      desc: "Daily content, visual design and community growth — your full social engine.",
+      bullets: ["Strategy & content calendar", "Video & media production", "Design & captions", "Community management", "Monthly performance review"],
       btnText: "Most Picked ↗",
       btnLink: "/contact",
       isPopular: true
@@ -132,7 +132,7 @@ export default function PricingPage() {
         
         <motion.div initial="hidden" animate="visible" variants={fadeUp} className="text-center mb-20 mt-10">
           <p className="text-[10px] tracking-[0.3em] text-white/40 uppercase font-bold mb-6">Engagement Models</p>
-          <h1 className="text-5xl md:text-7xl lg:text-[80px] font-black mb-6 leading-[1.1] tracking-tighter">
+          <h1 className="text-5xl md:text-7xl lg:text-[80px] font-black mb-6 leading-[1.18] tracking-tight">
             Built Around <span className="text-blue-500">Your<br className="hidden md:block" />Brand.</span>
           </h1>
           <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
@@ -162,7 +162,7 @@ export default function PricingPage() {
             <p className="text-[10px] tracking-[0.3em] text-naavsoch-gold uppercase font-bold mb-6 flex items-center justify-center gap-2">
               <span className="w-3.5 h-3.5 rounded-full border border-naavsoch-gold flex items-center justify-center text-[8px]">!</span> HONEST NOTE
             </p>
-            <h2 className="text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter">
+            <h2 className="text-5xl md:text-7xl font-black leading-[1.18] tracking-tight">
               We May Not Be the<br/>
               <span className="text-[#FF6B6B]">Right Fit</span> If...
             </h2>
@@ -173,8 +173,9 @@ export default function PricingPage() {
               "You only want the cheapest option",
               "You expect overnight results",
               "You don't value strategy",
-              "You aren't committed to growth",
-              "You want deliverables without business objectives"
+              "You micromanage design",
+              "You are not ready to scale",
+              "You see marketing as a cost, not investment"
             ].map((text, i) => (
               <motion.div 
                 key={i} 
@@ -202,7 +203,7 @@ export default function PricingPage() {
         {/* FAQ ACCORDION */}
         <div className="mt-20">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">Frequently Asked Questions</h2>
             <p className="text-white/60">Everything you need to know about working with us.</p>
           </div>
           <FaqAccordion />

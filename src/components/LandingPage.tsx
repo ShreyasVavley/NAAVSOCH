@@ -1,21 +1,13 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, Variants, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import TextReveal from "./TextReveal";
 import Link from "next/link";
-import { 
-  Film, PlayCircle
-} from "lucide-react";
 import UiverseButton from "./UiverseButton";
 import UiverseButtonSecondary from "./UiverseButtonSecondary";
 import MagneticButton from "./MagneticButton";
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } }
-};
 
 const wordAnimation = {
   hidden: { y: "100%", opacity: 0 },
@@ -34,7 +26,6 @@ export default function LandingPage() {
     offset: ["start start", "end start"]
   });
 
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const bgOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const textScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
@@ -47,51 +38,83 @@ export default function LandingPage() {
     { title: "Industrial Retailer", subtitle: "Industrial Brand Refresh", category: "BRANDING", img: "/dev_electricals.jpg" }
   ];
 
-  const reels = [
-    { title: "Premium product hero films", category: "PRODUCT REELS", img: "/durge_sales.jpg" },
-    { title: "Showroom & space storytelling", category: "INTERIOR REELS", img: "/home_world.jpg" },
-    { title: "Identity-led brand films", category: "BRANDING REELS", img: "/sri_laxmi.jpg" },
-    { title: "Sale, launch & event spots", category: "PROMOTIONAL REELS", img: "/suraksha_doors.jpg" },
-    { title: "Founder & customer stories", category: "STORYTELLING REELS", img: "/dev_electricals.jpg" }
-  ];
+
 
   return (
     <div className="flex flex-col min-h-screen bg-transparent text-white selection:bg-naavsoch-gold/30 font-sans">
       
       {/* HERO SECTION */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-b from-black to-[black]">
+      <section ref={heroRef} className="relative min-h-[100dvh] flex items-center justify-center pt-28 sm:pt-32 pb-16 sm:pb-20 px-4 overflow-hidden bg-black">
         
-        {/* Background Image with Parallax */}
-        <motion.div style={{ y: bgY }} className="absolute inset-0 z-0">
+        {/* Cinematic Backdrop Image - Desktop & Mobile */}
+        <motion.div 
+          style={{ opacity: bgOpacity }}
+          className="absolute inset-0 z-0 pointer-events-none"
+        >
+          {/* Mobile Optimized Backdrop (9:16 Portrait) */}
           <Image 
-            src="/hero.jpg" 
-            alt="Hero Background" 
-            fill 
-            className="object-cover opacity-20 grayscale" 
+            src="/hero-backdrop-mobile.jpg"
+            alt="Hero Cinematic Backdrop Mobile"
+            fill
             priority
+            className="block md:hidden object-cover object-top opacity-55 select-none"
           />
-          {/* Dark gradient overlay for depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[black]" />
+          {/* Desktop Optimized Backdrop (16:9 Landscape) */}
+          <Image 
+            src="/hero-backdrop.jpg"
+            alt="Hero Cinematic Backdrop Desktop"
+            fill
+            priority
+            className="hidden md:block object-cover object-center opacity-45 select-none"
+          />
+          {/* Subtle Dark Vignette & Edge Blending */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50 pointer-events-none" />
+          <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/70 pointer-events-none" />
         </motion.div>
 
-        {/* Soft Ambient Radial Glow */}
-        <motion.div style={{ y: bgY, opacity: bgOpacity }} className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] opacity-20 rounded-full" style={{ background: "radial-gradient(circle, rgba(64,123,255,1) 0%, rgba(64,123,255,0) 70%)" }} />
+        {/* Minimalist Dot Matrix Pattern with Radial Fade Mask */}
+        <motion.div 
+          style={{ opacity: bgOpacity }}
+          className="absolute inset-0 z-0 pointer-events-none"
+        >
+          <div 
+            className="w-full h-full opacity-15"
+            style={{
+              backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.25) 1.25px, transparent 1.25px)',
+              backgroundSize: '32px 32px',
+              maskImage: 'radial-gradient(ellipse 80% 65% at 50% 45%, black 20%, transparent 85%)',
+              WebkitMaskImage: 'radial-gradient(ellipse 80% 65% at 50% 45%, black 20%, transparent 85%)',
+            }}
+          />
         </motion.div>
+
+        {/* Soft Ambient Center Radial Glow */}
+        <motion.div 
+          style={{ opacity: bgOpacity }} 
+          className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
+        >
+          <div 
+            className="w-[75vw] h-[75vw] max-w-[650px] max-h-[650px] opacity-25 rounded-full blur-[120px]" 
+            style={{ background: "radial-gradient(circle, rgba(64,123,255,0.85) 0%, rgba(64,123,255,0) 70%)" }} 
+          />
+        </motion.div>
+
+        {/* Bottom Fade Gradient */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none z-0" />
         
         <div className="container mx-auto max-w-5xl relative z-10 text-center">
           <motion.div style={{ y: textY, scale: textScale }} initial="hidden" animate="visible">
             
             {/* Staggered text reveal for Hero */}
-            <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black mb-6 leading-[0.9] tracking-tighter flex flex-wrap justify-center overflow-hidden">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[88px] font-display font-bold mb-6 leading-[1.2] sm:leading-[1.15] tracking-tight flex flex-wrap justify-center overflow-hidden">
               {["We", "Build", "Brands"].map((word, i) => (
-                <motion.span key={i} custom={i} variants={wordAnimation} className="inline-block mr-4 md:mr-8 mb-2">
+                <motion.span key={i} custom={i} variants={wordAnimation} className="inline-block mr-2 sm:mr-4 md:mr-8 mb-1 sm:mb-2">
                   {word}
                 </motion.span>
               ))}
-              <div className="w-full h-0" />
+              <div className="w-full h-0 basis-full" />
               {["People"].map((word, i) => (
-                <motion.span key={i + 3} custom={i + 3} variants={wordAnimation} className="inline-block mr-4 md:mr-8">
+                <motion.span key={i + 3} custom={i + 3} variants={wordAnimation} className="inline-block mr-2 sm:mr-4 md:mr-8">
                   {word}
                 </motion.span>
               ))}
@@ -100,15 +123,15 @@ export default function LandingPage() {
               </motion.span>
             </h1>
 
-            <motion.p custom={5} variants={wordAnimation} className="text-lg md:text-xl text-white/60 mb-4 max-w-2xl mx-auto font-light tracking-widest uppercase">
+            <motion.p custom={5} variants={wordAnimation} className="text-xs sm:text-sm md:text-base text-white/60 mb-4 max-w-2xl mx-auto font-light tracking-[0.2em] sm:tracking-[0.25em] uppercase px-2">
               Strategy. Creativity. Technology. Growth.
             </motion.p>
 
-            <motion.p custom={6} variants={wordAnimation} className="text-base md:text-lg text-white/40 mb-12 max-w-2xl mx-auto tracking-wide">
+            <motion.p custom={6} variants={wordAnimation} className="text-sm sm:text-base md:text-lg text-white/50 mb-8 sm:mb-12 max-w-2xl mx-auto tracking-wide px-2">
               We help ambitious brands build authority, attract customers and scale through branding, content, websites and performance.
             </motion.p>
             
-            <motion.div custom={7} variants={wordAnimation} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8">
+            <motion.div custom={7} variants={wordAnimation} className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-6 sm:mt-8 w-full max-w-xs sm:max-w-none mx-auto">
               <MagneticButton><UiverseButton text="Start Your Project" href="/contact" /></MagneticButton>
               <MagneticButton><UiverseButtonSecondary text="View Our Work" href="/work" /></MagneticButton>
             </motion.div>
@@ -171,7 +194,7 @@ export default function LandingPage() {
       {/* TEXT REVEAL SECTION */}
       <section className="py-32 bg-transparent">
         <div className="container mx-auto px-4 max-w-4xl">
-          <TextReveal className="text-3xl md:text-5xl lg:text-7xl font-black leading-tight tracking-tighter justify-center text-center">
+          <TextReveal className="text-3xl md:text-5xl lg:text-7xl font-display font-normal leading-tight tracking-tight justify-center text-center">
             We don&apos;t just build websites. We engineer cinematic digital experiences that help brands grow.
           </TextReveal>
         </div>
@@ -185,7 +208,7 @@ export default function LandingPage() {
               {[
                 { num: "100+", text: "PROJECTS DELIVERED" },
                 { num: "50+", text: "BRANDS SERVED" },
-                { num: "500+", text: "REELS CREATED" },
+                { num: "500+", text: "CAMPAIGNS LAUNCHED" },
                 { num: "1000+", text: "CREATIVE ASSETS" },
                 { num: "3+", text: "YEARS EXPERIENCE" },
                 { num: "24/7", text: "SUPPORT SYSTEM" }
@@ -208,7 +231,7 @@ export default function LandingPage() {
           <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-16 gap-8">
             <div>
               <p className="text-[10px] tracking-[0.3em] text-white/40 uppercase font-bold mb-6">Our Work</p>
-              <h2 className="text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter">
+              <h2 className="text-5xl md:text-7xl font-display font-bold leading-[1.2] tracking-tight">
                 Case <span className="text-naavsoch-gold">Studies.</span>
               </h2>
             </div>
@@ -217,12 +240,12 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 mb-12">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-12">
             {["ALL", "BRANDING", "WEBSITE", "PERFORMANCE MARKETING", "SOCIAL MEDIA"].map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-6 py-2.5 rounded-full text-xs font-bold tracking-[0.15em] transition-colors border border-white/10 ${
+                className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold tracking-[0.12em] sm:tracking-[0.15em] transition-colors border border-white/10 ${
                   activeFilter === filter 
                     ? "bg-blue-500 text-white border-blue-500" 
                     : "bg-transparent text-white/50 hover:text-white hover:bg-white/5"
@@ -260,80 +283,13 @@ export default function LandingPage() {
                     <h3 className="text-3xl font-black mb-2 tracking-tight">{item.title}</h3>
                     <p className="text-white/70 mb-6 text-sm">{item.subtitle}</p>
                     <Link href="/work" className="text-[11px] font-bold tracking-[0.2em] uppercase text-white/80 hover:text-white flex items-center gap-2 group/link">
-                      Read Story <span className="font-sans text-sm group-hover/link:translate-x-1 transition-transform">â†—</span>
+                      Read Story <span className="font-sans text-sm group-hover/link:translate-x-1 transition-transform">↗</span>
                     </Link>
                   </div>
                 </motion.div>
                 ))}
               </AnimatePresence>
             </motion.div>
-        </div>
-      </section>
-
-      {/* FEATURED REELS */}
-      <section className="py-24 bg-transparent relative z-10 border-t border-white/5">
-        <div className="container mx-auto px-4 max-w-[1400px]">
-          
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <Film className="w-4 h-4 text-naavsoch-gold" />
-                <p className="text-[10px] tracking-[0.3em] text-naavsoch-gold uppercase font-bold">Featured Reels</p>
-              </div>
-              <h2 className="text-5xl md:text-7xl font-black leading-[1.1] tracking-tighter">
-                Content That Moves<br className="hidden md:block" />
-                <span className="text-blue-500">People.</span>
-              </h2>
-            </div>
-            <p className="text-white/60 text-sm md:text-base lg:text-lg max-w-sm lg:text-right">
-              Scroll-stopping reels engineered for retention, conversion and brand recall. From product hero films to founder stories.
-            </p>
-          </div>
-
-          <motion.div 
-            initial="hidden" 
-            whileInView="visible" 
-            viewport={{ once: true, amount: 0.1 }}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.1 } }
-            }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 mb-16"
-          >
-            {reels.map((reel, i) => (
-              <motion.div 
-                key={i}
-                variants={fadeUp}
-                className="group relative overflow-hidden rounded-[2rem] bg-[#0A0A0A] border border-white/5 aspect-[9/16] flex flex-col"
-              >
-                <Image src={reel.img} alt={reel.title} fill className="object-cover transition-all duration-300 group-hover:scale-110 grayscale group-hover:grayscale-0" />
-                <div className="absolute inset-0 bg-black/60 transition-colors duration-200 group-hover:bg-black/30" />
-                
-                <div className="absolute top-4 left-4 z-10 bg-black/80 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full">
-                  <span className="text-[8px] font-bold tracking-[0.2em] text-blue-400 uppercase">{reel.category}</span>
-                </div>
-                
-                <div className="absolute inset-0 flex items-center justify-center z-10">
-                  <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center bg-black/40 backdrop-blur-sm group-hover:scale-110 group-hover:bg-white/10 group-hover:border-white transition-all duration-300">
-                    <PlayCircle className="w-5 h-5 text-white" />
-                  </div>
-                </div>
-
-                <div className="absolute bottom-0 left-0 w-full p-6 z-10">
-                  <h3 className="text-lg md:text-xl font-black tracking-tight leading-tight text-white">{reel.title}</h3>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-          
-          <div className="flex justify-center">
-            <MagneticButton>
-              <Link href="/contact" className="px-8 py-4 bg-naavsoch-gold text-black rounded-full font-bold text-sm tracking-wide hover:bg-white transition-colors flex items-center gap-3">
-                <Film className="w-4 h-4" />
-                Get Your Reels Made
-              </Link>
-            </MagneticButton>
-          </div>
         </div>
       </section>
 

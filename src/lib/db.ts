@@ -12,10 +12,24 @@ try {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       email TEXT NOT NULL,
+      company TEXT,
+      interest TEXT,
       message TEXT NOT NULL,
       createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
     )
   `);
+
+  try {
+    db.exec(`ALTER TABLE contacts ADD COLUMN company TEXT`);
+  } catch {
+    // column already exists
+  }
+
+  try {
+    db.exec(`ALTER TABLE contacts ADD COLUMN interest TEXT`);
+  } catch {
+    // column already exists
+  }
 } catch (e) {
   console.error("Failed to initialize SQLite database:", e);
   db = {

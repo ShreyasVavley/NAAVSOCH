@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export default function PrivacyPolicy() {
@@ -10,7 +10,7 @@ export default function PrivacyPolicy() {
           Back to Home
         </Link>
         
-        <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-4">Privacy Policy</h1>
+        <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-4">Privacy Policy</h1>
         <p className="text-white/40 mb-12 text-sm tracking-widest uppercase">Last Updated: August 2026</p>
         
         <div className="prose prose-invert prose-lg max-w-none text-white/70 space-y-8">
