@@ -9,7 +9,17 @@ import { motion } from 'framer-motion';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -46,7 +56,11 @@ export default function Header() {
         transition={{ type: "spring", stiffness: 120, damping: 14 }}
         className="fixed top-4 md:top-6 inset-x-0 z-[100] flex justify-center px-4 md:px-0"
       >
-        <div className="w-full md:w-[95%] max-w-[1400px] bg-white/5 backdrop-blur-3xl border border-white/10 rounded-full px-4 lg:px-5 xl:px-6 py-3 lg:py-3.5 xl:py-4 flex items-center justify-between shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]">
+        <div className={`w-full md:w-[95%] max-w-[1400px] backdrop-blur-3xl border rounded-full px-4 lg:px-5 xl:px-6 py-3 lg:py-3.5 xl:py-4 flex items-center justify-between transition-all duration-300 ${
+          scrolled 
+            ? 'bg-black/80 border-white/20 shadow-[0_12px_40px_rgba(0,0,0,0.8)]' 
+            : 'bg-white/5 border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]'
+        }`}>
           
           {/* Left: Logo Lockup */}
           <Link href="/" className="flex items-center relative z-50 group shrink-0">
@@ -66,9 +80,16 @@ export default function Header() {
               <Link 
                 key={link.href} 
                 href={link.href} 
-                className={`relative text-[10px] xl:text-[11px] font-medium tracking-[0.2em] transition-all duration-300 hover:text-white hover:-translate-y-0.5 whitespace-nowrap ${pathname === link.href ? 'text-white' : 'text-white/50'}`}
+                className={`relative text-[10px] xl:text-[11px] font-medium tracking-[0.2em] transition-all duration-300 hover:text-white hover:-translate-y-0.5 whitespace-nowrap py-1 ${pathname === link.href ? 'text-white' : 'text-white/50'}`}
               >
                 {link.label}
+                {pathname === link.href && (
+                  <motion.span 
+                    layoutId="activeNavIndicator"
+                    className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-[#407BFF] rounded-full shadow-[0_0_8px_#407BFF]"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
               </Link>
             ))}
           </nav>

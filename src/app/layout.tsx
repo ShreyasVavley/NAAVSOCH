@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const viewport: Viewport = {
   themeColor: "#000000",
@@ -89,6 +90,7 @@ export default function RootLayout({
         
         <div className="fixed inset-0 z-[-1] bg-black" />
         <ScrollProgress />
+        <SmoothScroll />
         <Header />
         <main className="flex-grow flex flex-col">{children}</main>
         <Footer />

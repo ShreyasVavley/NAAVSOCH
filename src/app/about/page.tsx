@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { Check, X } from "lucide-react";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -37,7 +38,9 @@ export default function AboutPage() {
             { stat: "24/7", label: "Client Support" }
           ].map((s, i) => (
             <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="bg-[#0A0A0A] border border-white/5 p-6 rounded-2xl text-center">
-              <div className="text-3xl font-black text-naavsoch-blue mb-2">{s.stat}</div>
+              <div className="text-3xl font-black text-naavsoch-blue mb-2">
+                <AnimatedCounter value={s.stat} />
+              </div>
               <div className="text-xs text-white/50 uppercase tracking-widest">{s.label}</div>
             </motion.div>
           ))}

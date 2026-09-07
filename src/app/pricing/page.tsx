@@ -81,7 +81,7 @@ export default function PricingPage() {
       whileInView="visible" 
       viewport={{ once: true }} 
       variants={fadeUp} 
-      className={`relative p-8 md:p-10 rounded-3xl flex flex-col h-full bg-[#0A0A0A] ${data.isPopular ? 'border border-naavsoch-gold/40 shadow-[0_0_30px_rgba(221,162,72,0.05)]' : 'border border-white/5'}`}
+      className={`relative p-8 md:p-10 rounded-3xl flex flex-col h-full bg-[#0A0A0A] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] ${data.isPopular ? 'border border-naavsoch-gold/40 hover:border-naavsoch-gold/80' : 'border border-white/5 hover:border-white/15'}`}
     >
       {data.isPopular && (
         <div className="absolute -top-4 right-8 bg-naavsoch-gold text-black text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest flex items-center gap-2">

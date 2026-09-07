@@ -8,6 +8,7 @@ import Link from "next/link";
 import UiverseButton from "./UiverseButton";
 import UiverseButtonSecondary from "./UiverseButtonSecondary";
 import MagneticButton from "./MagneticButton";
+import AnimatedCounter from "./AnimatedCounter";
 
 const wordAnimation = {
   hidden: { y: "100%", opacity: 0 },
@@ -139,15 +140,15 @@ export default function LandingPage() {
             {/* Social Proof Metrics */}
             <motion.div custom={7} variants={wordAnimation} className="mt-16 pt-8 border-t border-white/10 flex flex-wrap justify-center gap-8 md:gap-16 text-white/60 font-bold uppercase tracking-widest text-xs md:text-sm">
               <div className="flex flex-col items-center gap-2">
-                <span className="text-3xl text-white">100+</span>
+                <AnimatedCounter value="100+" className="text-3xl text-white font-bold" />
                 <span>Projects Delivered</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <span className="text-3xl text-white">50+</span>
+                <AnimatedCounter value="50+" className="text-3xl text-white font-bold" />
                 <span>Clients Scaled</span>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <span className="text-3xl text-white">24/7</span>
+                <AnimatedCounter value="24/7" className="text-3xl text-white font-bold" />
                 <span>Dedicated Support</span>
               </div>
             </motion.div>
@@ -214,7 +215,9 @@ export default function LandingPage() {
                 { num: "24/7", text: "SUPPORT SYSTEM" }
               ].map((stat, i) => (
                 <div key={i} className="p-8 md:p-10 flex flex-col justify-center">
-                  <h3 className="text-4xl md:text-5xl font-black mb-4 tracking-tighter text-blue-500">{stat.num}</h3>
+                  <h3 className="text-4xl md:text-5xl font-black mb-4 tracking-tight text-blue-500">
+                    <AnimatedCounter value={stat.num} />
+                  </h3>
                   <p className="text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] text-white/40 uppercase font-bold">{stat.text}</p>
                 </div>
               ))}
@@ -245,12 +248,19 @@ export default function LandingPage() {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold tracking-[0.12em] sm:tracking-[0.15em] transition-colors border border-white/10 ${
+                className={`relative px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold tracking-[0.12em] sm:tracking-[0.15em] transition-colors border ${
                   activeFilter === filter 
-                    ? "bg-blue-500 text-white border-blue-500" 
-                    : "bg-transparent text-white/50 hover:text-white hover:bg-white/5"
+                    ? "text-white border-transparent" 
+                    : "border-white/10 bg-transparent text-white/50 hover:text-white hover:bg-white/5"
                 }`}
               >
+                {activeFilter === filter && (
+                  <motion.span
+                    layoutId="activeFilterPill"
+                    className="absolute inset-0 bg-gradient-to-r from-[#407BFF] to-[#3060E0] rounded-full -z-10 shadow-lg shadow-blue-500/25"
+                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  />
+                )}
                 {filter}
               </button>
             ))}
@@ -270,20 +280,20 @@ export default function LandingPage() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4 }}
                   key={item.title}
-                  className="group relative overflow-hidden rounded-[2rem] bg-[#0A0A0A] border border-white/5 aspect-[4/3] flex flex-col"
+                  className="group relative overflow-hidden rounded-[2rem] bg-[#0A0A0A] border border-white/5 hover:border-blue-500/30 aspect-[4/3] flex flex-col transition-all duration-500 hover:shadow-[0_12px_35px_rgba(64,123,255,0.15)]"
                 >
-                  <Image src={item.img} alt={item.title} fill className="object-cover transition-all duration-300 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[black] via-[black]/40 to-transparent opacity-90 transition-opacity duration-200 group-hover:opacity-80" />
+                  <Image src={item.img} alt={item.title} fill className="object-cover transition-all duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[black] via-[black]/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-75" />
                   
                   <div className="absolute top-6 left-6 z-10 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full">
                     <span className="text-[10px] font-bold tracking-[0.2em] text-naavsoch-gold uppercase">{item.category}</span>
                   </div>
 
                   <div className="absolute bottom-0 left-0 w-full p-8 z-10">
-                    <h3 className="text-3xl font-black mb-2 tracking-tight">{item.title}</h3>
+                    <h3 className="text-3xl font-black mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">{item.title}</h3>
                     <p className="text-white/70 mb-6 text-sm">{item.subtitle}</p>
                     <Link href="/work" className="text-[11px] font-bold tracking-[0.2em] uppercase text-white/80 hover:text-white flex items-center gap-2 group/link">
-                      Read Story <span className="font-sans text-sm group-hover/link:translate-x-1 transition-transform">↗</span>
+                      Read Story <span className="font-sans text-sm group-hover/link:translate-x-1.5 group-hover/link:-translate-y-0.5 transition-transform duration-300">↗</span>
                     </Link>
                   </div>
                 </motion.div>

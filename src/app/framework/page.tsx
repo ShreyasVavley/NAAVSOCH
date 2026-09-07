@@ -90,14 +90,14 @@ export default function FrameworkPage() {
                   hidden: { opacity: 0, y: 30 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
                 }}
-                className="bg-[#0A0A0A] border border-white/5 rounded-[2rem] p-8 flex flex-col group hover:border-white/10 transition-all duration-500 relative"
+                className="bg-[#0A0A0A] border border-white/5 rounded-[2rem] p-8 flex flex-col group hover:border-blue-500/30 hover:-translate-y-1.5 hover:shadow-[0_12px_30px_rgba(64,123,255,0.12)] transition-all duration-300 relative"
               >
                 {/* Header: Icon & Big Number */}
                 <div className="flex items-center justify-between mb-10">
                   <div className="w-12 h-12 rounded-xl bg-black border border-white/5 flex items-center justify-center shadow-inner group-hover:bg-white/5 transition-colors relative z-10">
                     <step.icon className={`w-5 h-5 ${step.color}`} />
                   </div>
-                  <span className="text-5xl font-black text-white/5 tracking-tighter select-none">{step.num}</span>
+                  <span className="text-5xl font-black text-white/10 tracking-tight select-none">{step.num}</span>
                 </div>
 
                 <h3 className="text-2xl font-black tracking-tight mb-6">{step.title}</h3>
