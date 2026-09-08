@@ -131,7 +131,7 @@ export default function Footer() {
 
         {/* Bottom Copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10 text-xs font-medium text-white/40">
-          <p>&copy; {new Date().getFullYear()} NAAVSOCH STUDIOS. All rights reserved.</p>
+          <p>&copy; NAAVSOCH STUDIOS. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
