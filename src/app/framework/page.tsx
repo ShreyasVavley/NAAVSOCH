@@ -66,7 +66,7 @@ export default function FrameworkPage() {
             <span className="text-blue-500">Process.</span>
           </h1>
           <p className="text-white/60 text-lg md:text-xl">
-            We don't guess. We follow a strict process to make sure your business actually grows. <span className="text-white">No fluff. Just execution.</span>
+            We don&apos;t guess. We follow a strict process to make sure your business actually grows. <span className="text-white">No fluff. Just execution.</span>
           </p>
         </motion.div>
 

@@ -147,7 +147,7 @@ export default function PricingPage() {
             No Hidden <span className="text-blue-500">Fees.</span>
           </h1>
           <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            Stop guessing how much things cost. Pick the partnership model that fits your business, and let's get to work.
+            Stop guessing how much things cost. Pick the partnership model that fits your business, and let&apos;s get to work.
           </p>
         </motion.div>
 
