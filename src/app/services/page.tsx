@@ -66,26 +66,33 @@ export default function ServicesPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   useEffect(() => {
-    // Check if there is a hash in the URL on mount
-    const hash = window.location.hash;
-    if (hash) {
-      const targetId = hash.replace('#', '');
-      const targetIndex = services.findIndex(
-        s => s.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') === targetId
-      );
-      if (targetIndex !== -1) {
-        setOpenIndex(targetIndex);
-        // Add a slight delay to allow rendering before scrolling
-        setTimeout(() => {
-          const element = document.getElementById(targetId);
-          if (element) {
-            // Offset for fixed header
-            const y = element.getBoundingClientRect().top + window.scrollY - 100;
-            window.scrollTo({ top: y, behavior: 'smooth' });
-          }
-        }, 300);
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = hash.replace('#', '');
+        const targetIndex = services.findIndex(
+          s => s.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') === targetId
+        );
+        if (targetIndex !== -1) {
+          setOpenIndex(targetIndex);
+          setTimeout(() => {
+            const element = document.getElementById(targetId);
+            if (element) {
+              const y = element.getBoundingClientRect().top + window.scrollY - 100;
+              window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+          }, 300);
+        }
       }
-    }
+    };
+
+    // Run on mount
+    handleHash();
+
+    // Run on hash changes
+    window.addEventListener('hashchange', handleHash);
+    
+    return () => window.removeEventListener('hashchange', handleHash);
   }, []);
 
   const toggleService = (i: number) => {

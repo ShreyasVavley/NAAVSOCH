@@ -95,13 +95,13 @@ export default function Footer() {
           <motion.div variants={itemVariants}>
             <h4 className="text-white font-bold mb-6 tracking-widest uppercase text-xs">Services</h4>
               <ul className="space-y-4 text-sm text-white/60 flex flex-col">
-                <Link href="/services#web-digital-systems" className="hover:text-white transition-colors">Web & Digital Systems</Link>
-                <Link href="/services#branding-identity" className="hover:text-white transition-colors">Branding & Identity</Link>
-                <Link href="/services#social-media-content" className="hover:text-white transition-colors">Social Media & Content</Link>
-                <Link href="/services#performance-marketing" className="hover:text-white transition-colors">Performance Marketing</Link>
-                <Link href="/services#creative-production" className="hover:text-white transition-colors">Creative Production</Link>
-                <Link href="/services#business-growth-systems" className="hover:text-white transition-colors">Business Growth Systems</Link>
-                <Link href="/services#local-business-growth" className="hover:text-white transition-colors">Local Business Growth</Link>
+                <a href="/services#web-digital-systems" className="hover:text-white transition-colors">Web & Digital Systems</a>
+                <a href="/services#branding-identity" className="hover:text-white transition-colors">Branding & Identity</a>
+                <a href="/services#social-media-content" className="hover:text-white transition-colors">Social Media & Content</a>
+                <a href="/services#performance-marketing" className="hover:text-white transition-colors">Performance Marketing</a>
+                <a href="/services#creative-production" className="hover:text-white transition-colors">Creative Production</a>
+                <a href="/services#business-growth-systems" className="hover:text-white transition-colors">Business Growth Systems</a>
+                <a href="/services#local-business-growth" className="hover:text-white transition-colors">Local Business Growth</a>
               </ul>
           </motion.div>
 
