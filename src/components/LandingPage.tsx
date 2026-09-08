@@ -11,7 +11,6 @@ import MagneticButton from "./MagneticButton";
 import AnimatedCounter from "./AnimatedCounter";
 import SpotlightCard from "./SpotlightCard";
 import ScrollReveal from "./ScrollReveal";
-import TextScramble from "./TextScramble";
 import StaggeredText from "./StaggeredText";
 
 const wordAnimation = {
@@ -136,11 +135,7 @@ export default function LandingPage() {
               </motion.span>
             </h1>
 
-            <motion.div custom={5} variants={wordAnimation} className="text-xs sm:text-sm md:text-base text-white/60 mb-4 max-w-2xl mx-auto font-light tracking-[0.2em] sm:tracking-[0.25em] uppercase px-2">
-              <TextScramble text="No fluff. Just design and marketing that works." />
-            </motion.div>
-
-            <motion.div custom={6} variants={wordAnimation} className="text-sm sm:text-base md:text-lg text-white/50 mb-8 sm:mb-12 max-w-2xl mx-auto tracking-wide px-2">
+            <motion.div custom={6} variants={wordAnimation} className="text-sm sm:text-base md:text-lg text-white/50 mb-8 sm:mb-12 max-w-2xl mx-auto tracking-wide px-2 mt-6">
               <StaggeredText text="Most agencies sell you templates and vanity metrics. We act as your actual growth partner—building your brand, running your ads, and designing websites that make you money." className="justify-center" />
             </motion.div>
             
