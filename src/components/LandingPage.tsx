@@ -168,11 +168,11 @@ export default function LandingPage() {
         {/* Bottom Marquee (Slow, Right) - Tool Stack */}
         <div className="flex whitespace-nowrap text-3xl md:text-5xl font-black tracking-tighter animate-marqueeRight">
           {Array(10).fill("FIGMA ✦ NEXT.JS ✦ VERCEL ✦ META ✦ STRIPE ✦ SHOPIFY ✦ FRAMER ✦ AWS ✦ ").map((text, i) => (
-            <span key={i} className="mx-4 text-white/5 hover:text-white/20 transition-colors duration-300">
+            <span key={i} className="mx-4 text-white/50 hover:text-white transition-colors duration-300">
               {text.split('✦').map((word: string, j: number, arr: string[]) => (
                 <span key={j}>
                   {word}
-                  {j < arr.length - 1 && <span className="text-white/10 mx-4">✦</span>}
+                  {j < arr.length - 1 && <span className="text-blue-500 mx-4">✦</span>}
                 </span>
               ))}
             </span>
