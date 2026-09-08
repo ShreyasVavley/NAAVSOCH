@@ -2,13 +2,11 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import TextReveal from "./TextReveal";
-import Link from "next/link";
 import UiverseButton from "./UiverseButton";
-import UiverseButtonSecondary from "./UiverseButtonSecondary";
 import MagneticButton from "./MagneticButton";
 import AnimatedCounter from "./AnimatedCounter";
-import SpotlightCard from "./SpotlightCard";
 import ScrollReveal from "./ScrollReveal";
 import StaggeredText from "./StaggeredText";
 
