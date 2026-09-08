@@ -142,12 +142,12 @@ export default function PricingPage() {
       <div className="container mx-auto px-4 max-w-7xl">
         
         <motion.div initial="hidden" animate="visible" variants={fadeUp} className="text-center mb-20 mt-10">
-          <p className="text-[10px] tracking-[0.3em] text-white/40 uppercase font-bold mb-6">Engagement Models</p>
+          <p className="text-[10px] tracking-[0.3em] text-white/40 uppercase font-bold mb-6">Plain and Simple Pricing</p>
           <h1 className="text-5xl md:text-7xl lg:text-[80px] font-black mb-6 leading-[1.18] tracking-tight">
-            Built Around <span className="text-blue-500">Your<br className="hidden md:block" />Brand.</span>
+            No Hidden <span className="text-blue-500">Fees.</span>
           </h1>
           <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            Every brand is different. Every engagement is scoped to fit. Pick the shape of partnership that matches where you are.
+            Stop guessing how much things cost. Pick the partnership model that fits your business, and let's get to work.
           </p>
         </motion.div>
 

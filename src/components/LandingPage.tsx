@@ -137,11 +137,11 @@ export default function LandingPage() {
             </h1>
 
             <motion.div custom={5} variants={wordAnimation} className="text-xs sm:text-sm md:text-base text-white/60 mb-4 max-w-2xl mx-auto font-light tracking-[0.2em] sm:tracking-[0.25em] uppercase px-2">
-              <TextScramble text="Strategy. Creativity. Technology. Growth." />
+              <TextScramble text="No fluff. Just design and marketing that works." />
             </motion.div>
 
             <motion.div custom={6} variants={wordAnimation} className="text-sm sm:text-base md:text-lg text-white/50 mb-8 sm:mb-12 max-w-2xl mx-auto tracking-wide px-2">
-              <StaggeredText text="We help ambitious brands build authority, attract customers and scale through branding, content, websites and performance." className="justify-center" />
+              <StaggeredText text="Most agencies sell you templates and vanity metrics. We act as your actual growth partner—building your brand, running your ads, and designing websites that make you money." className="justify-center" />
             </motion.div>
             
             <motion.div custom={7} variants={wordAnimation} className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-6 sm:mt-8 w-full max-w-xs sm:max-w-none mx-auto">
@@ -153,15 +153,15 @@ export default function LandingPage() {
             <motion.div custom={7} variants={wordAnimation} className="mt-16 pt-8 border-t border-white/10 flex flex-wrap justify-center gap-8 md:gap-16 text-white/60 font-bold uppercase tracking-widest text-xs md:text-sm">
               <div className="flex flex-col items-center gap-2">
                 <AnimatedCounter value="100+" className="text-3xl text-white font-bold" />
-                <span>Projects Delivered</span>
+                <span>Brands Launched</span>
               </div>
               <div className="flex flex-col items-center gap-2">
                 <AnimatedCounter value="50+" className="text-3xl text-white font-bold" />
-                <span>Clients Scaled</span>
+                <span>Businesses Grown</span>
               </div>
               <div className="flex flex-col items-center gap-2">
                 <AnimatedCounter value="24/7" className="text-3xl text-white font-bold" />
-                <span>Dedicated Support</span>
+                <span>Zero Outsourcing</span>
               </div>
             </motion.div>
           </motion.div>

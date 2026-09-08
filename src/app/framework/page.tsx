@@ -60,13 +60,13 @@ export default function FrameworkPage() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-24 mt-10"
         >
-          <p className="text-[10px] md:text-xs tracking-[0.3em] text-naavsoch-gold font-bold uppercase mb-6">Proprietary System</p>
+          <p className="text-[10px] md:text-xs tracking-[0.3em] text-naavsoch-gold font-bold uppercase mb-6">How We Work</p>
           <h1 className="text-5xl md:text-7xl lg:text-[90px] font-black leading-[1.18] tracking-tight mb-8">
-            The NaavSoch Growth<br className="hidden md:block"/>
-            <span className="text-blue-500">Framework™</span>
+            The<br className="hidden md:block"/>
+            <span className="text-blue-500">Process.</span>
           </h1>
           <p className="text-white/60 text-lg md:text-xl">
-            Every successful brand follows a system. <span className="text-white">This is ours.</span>
+            We don't guess. We follow a strict process to make sure your business actually grows. <span className="text-white">No fluff. Just execution.</span>
           </p>
         </motion.div>
 
