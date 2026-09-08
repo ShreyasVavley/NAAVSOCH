@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { 
   BarChart3, Palette, Camera, DoorClosed, Trees, Wrench, HardHat, ShoppingBag, Heart, Briefcase, Rocket, ChevronDown, Monitor, MapPin, Brain
@@ -65,6 +65,29 @@ const services = [
 export default function ServicesPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  useEffect(() => {
+    // Check if there is a hash in the URL on mount
+    const hash = window.location.hash;
+    if (hash) {
+      const targetId = hash.replace('#', '');
+      const targetIndex = services.findIndex(
+        s => s.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') === targetId
+      );
+      if (targetIndex !== -1) {
+        setOpenIndex(targetIndex);
+        // Add a slight delay to allow rendering before scrolling
+        setTimeout(() => {
+          const element = document.getElementById(targetId);
+          if (element) {
+            // Offset for fixed header
+            const y = element.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }, 300);
+      }
+    }
+  }, []);
+
   const toggleService = (i: number) => {
     if (openIndex === i) {
       setOpenIndex(null);
@@ -109,6 +132,7 @@ export default function ServicesPage() {
           {services.map((srv, i) => (
             <motion.div 
               key={i} 
+              id={srv.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
               variants={fadeUp}
               className={`bg-[#0A0A0A] border transition-all duration-300 rounded-3xl overflow-hidden ${openIndex === i ? 'border-blue-500/50 shadow-[0_0_30px_rgba(64,123,255,0.1)]' : 'border-white/5 hover:border-white/10'}`}
             >
