@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
@@ -58,7 +58,6 @@ export default function TiltCard({
     y.set(0);
   };
 
-  // If touch device, render without 3D transforms to save performance and prevent bugs
   if (isTouchDevice) {
     return <div className={className}>{children}</div>;
   }

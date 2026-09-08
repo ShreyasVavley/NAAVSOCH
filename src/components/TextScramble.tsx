@@ -1,9 +1,9 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const CHARS = "!<>-_\\/[]{}�=+*^?#_";
+const CHARS = "!<>-_\\/[]{}—=+*^?#_";
 
 export default function TextScramble({
   text,
