@@ -35,8 +35,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "NaavSoch Studio | We Build Brands People Remember",
-  description: "Strategy. Creativity. Technology. Growth. We help ambitious brands build authority, attract customers and scale through branding, content, websites and performance.",
+  title: "NaavSoch Studio | Top Digital Marketing & Web Design Agency in Bengaluru",
+  description: "NaavSoch Studio is the best digital marketing agency in Bengaluru, Southern India. We specialize in performance marketing, web design, SEO, branding, and business growth systems to scale your brand.",
   metadataBase: new URL('https://naavsoch.com'),
   icons: {
     icon: '/logo-mark.png',
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "NaavSoch Studio | We Build Brands People Remember",
-    description: "Strategy. Creativity. Technology. Growth. We help ambitious brands build authority, attract customers and scale.",
+    title: "NaavSoch Studio | Top Digital Marketing Agency in Bengaluru",
+    description: "NaavSoch Studio is the best digital marketing agency in Bengaluru, Southern India. We specialize in performance marketing, web design, SEO, and branding.",
     url: 'https://naavsoch.com',
     siteName: 'NaavSoch Studio',
     locale: 'en_US',
