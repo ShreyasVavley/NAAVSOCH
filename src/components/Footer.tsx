@@ -82,14 +82,13 @@ export default function Footer() {
           {/* Column 2: Studio */}
           <motion.div variants={itemVariants}>
             <h4 className="text-white font-bold mb-6 tracking-widest uppercase text-xs">Studio</h4>
-            <ul className="space-y-4 text-sm text-white/60">
-              <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/framework" className="hover:text-white transition-colors">Framework</Link></li>
-              <li><Link href="/work" className="hover:text-white transition-colors">Our Work</Link></li>
-              <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-            </ul>
+              <ul className="space-y-4 text-sm text-white/50">
+                <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
+                <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+                <li><Link href="/framework" className="hover:text-white transition-colors">Framework</Link></li>
+                <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              </ul>
           </motion.div>
 
           {/* Column 3: Services */}

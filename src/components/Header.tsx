@@ -44,7 +44,6 @@ export default function Header() {
     { href: '/about', label: 'ABOUT' },
     { href: '/services', label: 'SERVICES' },
     { href: '/framework', label: 'FRAMEWORK' },
-    { href: '/work', label: 'WORK' },
     { href: '/pricing', label: 'PRICING' },
     { href: '/contact', label: 'CONTACT' },
   ];
