@@ -83,7 +83,7 @@ export default function FrameworkPage() {
               hidden: {},
               visible: { transition: { staggerChildren: 0.1 } }
             }}
-            className="grid grid-cols-1 lg:grid-cols-5 gap-4 relative z-10"
+            className="flex flex-wrap justify-center gap-6 relative z-10"
           >
             {steps.map((step) => (
               <motion.div 
@@ -92,6 +92,7 @@ export default function FrameworkPage() {
                   hidden: { opacity: 0, y: 30 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
                 }}
+                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
               >
                 <TiltCard className="h-full">
                   <div className="h-full bg-[#0A0A0A] border border-white/5 rounded-[2rem] flex flex-col group hover:border-blue-500/30 transition-all duration-300 relative overflow-hidden">

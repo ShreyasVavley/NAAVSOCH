@@ -75,21 +75,14 @@ export default function Header() {
           </Link>
           
           {/* Center: Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-5 xl:gap-10 justify-center shrink-0">
+          <nav className="hidden lg:flex items-center gap-2 xl:gap-4 justify-center shrink-0">
             {links.map((link) => (
               <Link 
                 key={link.href} 
                 href={link.href} 
-                className={`relative text-[10px] xl:text-[11px] font-medium tracking-[0.2em] transition-all duration-300 hover:text-white hover:-translate-y-0.5 whitespace-nowrap py-1 ${pathname === link.href ? 'text-white' : 'text-white/50'}`}
+                className={`relative text-[10px] xl:text-[11px] font-bold tracking-[0.2em] transition-all duration-300 whitespace-nowrap px-4 py-2 rounded-full outline-none ${pathname === link.href ? 'text-white bg-white/10 shadow-inner' : 'text-white/50 hover:text-white hover:bg-white/5'}`}
               >
                 {link.label}
-                {pathname === link.href && (
-                  <motion.span 
-                    layoutId="activeNavIndicator"
-                    className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-[#407BFF] rounded-full shadow-[0_0_8px_#407BFF]"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  />
-                )}
               </Link>
             ))}
           </nav>
