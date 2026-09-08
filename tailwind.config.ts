@@ -39,11 +39,19 @@ const config: Config = {
           '0%': { backgroundPosition: '200% 0' },
           '100%': { backgroundPosition: '-200% 0' },
         },
+        'aurora-blob': {
+          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+          '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+          '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+        },
       },
       animation: {
         marquee: 'marquee 30s linear infinite',
         'pulse-slow': 'pulse-slow 8s ease-in-out infinite',
         'shimmer-sweep': 'shimmer-sweep 3s ease-in-out infinite',
+        'aurora-1': 'aurora-blob 20s ease-in-out infinite',
+        'aurora-2': 'aurora-blob 25s ease-in-out infinite reverse',
+        'aurora-3': 'aurora-blob 30s ease-in-out infinite 2s',
       }
     },
   },

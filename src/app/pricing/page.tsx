@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import FaqAccordion from "@/components/FaqAccordion";
 import SpotlightCard from "@/components/SpotlightCard";
+import TiltCard from "@/components/TiltCard";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -82,54 +83,57 @@ export default function PricingPage() {
       whileInView="visible" 
       viewport={{ once: true }} 
       variants={fadeUp} 
-      className={`relative rounded-3xl flex flex-col h-full bg-[#0A0A0A] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] ${data.isPopular ? 'border border-naavsoch-gold/40 hover:border-naavsoch-gold/80' : 'border border-white/5 hover:border-white/15'}`}
     >
-      <SpotlightCard 
-        className="w-full h-full p-8 md:p-10 rounded-3xl flex flex-col"
-        spotlightColor={data.isPopular ? "rgba(235, 179, 56, 0.14)" : "rgba(64, 123, 255, 0.14)"}
-      >
-        {data.isPopular && (
-          <div className="absolute -top-4 right-8 bg-naavsoch-gold text-black text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest flex items-center gap-2 overflow-hidden shadow-lg shadow-amber-500/20 z-20">
-            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent bg-[length:200%_100%] animate-shimmer-sweep pointer-events-none" />
-            <span className="relative z-10 flex items-center gap-2"><span>★</span> MOST POPULAR</span>
-          </div>
-        )}
-        
-        <div className={`text-[9px] font-bold tracking-[0.3em] uppercase mb-6 ${data.isPopular ? 'text-white/60' : 'text-white/40'}`}>
-          {data.tag}
-        </div>
-        
-        <h3 className="text-3xl font-black mb-2 tracking-tight">{data.title}</h3>
-        <div className={`text-[10px] tracking-[0.2em] font-medium uppercase mb-6 ${data.isPopular ? 'text-white/50' : 'text-white/40'}`}>
-          {data.sub}
-        </div>
-        
-        <p className="text-white/60 mb-10 text-sm leading-relaxed">
-          {data.desc}
-        </p>
-        
-        <ul className="space-y-4 mb-12 flex-grow">
-          {data.bullets.map((bullet: string, idx: number) => (
-            <li key={idx} className="flex items-start gap-4 text-sm text-white/80">
-              <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${data.isPopular ? 'bg-naavsoch-gold' : 'bg-blue-500'}`} /> 
-              {bullet}
-            </li>
-          ))}
-        </ul>
-        
-        <div className="w-full mt-auto">
-          <Link 
-            href={data.btnLink} 
-            className={`w-full py-4 rounded-2xl font-medium text-sm flex items-center justify-center transition-all duration-300 ${
-              data.isPopular 
-                ? 'bg-naavsoch-gold text-black hover:bg-white' 
-                : 'bg-[#111111] text-white border border-white/5 hover:border-white/20 hover:bg-[#1A1A1A]'
-            }`}
+      <TiltCard className="h-full">
+        <div className={`relative rounded-3xl flex flex-col h-full bg-[#0A0A0A] transition-all duration-300 hover:shadow-[0_15px_35px_rgba(0,0,0,0.5)] ${data.isPopular ? 'border border-naavsoch-gold/40 hover:border-naavsoch-gold/80' : 'border border-white/5 hover:border-white/15'}`}>
+          <SpotlightCard 
+            className="w-full h-full p-8 md:p-10 rounded-3xl flex flex-col"
+            spotlightColor={data.isPopular ? "rgba(235, 179, 56, 0.14)" : "rgba(64, 123, 255, 0.14)"}
           >
-            {data.btnText}
-          </Link>
+            {data.isPopular && (
+              <div className="absolute -top-4 right-8 bg-naavsoch-gold text-black text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest flex items-center gap-2 overflow-hidden shadow-lg shadow-amber-500/20 z-20">
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent bg-[length:200%_100%] animate-shimmer-sweep pointer-events-none" />
+                <span className="relative z-10 flex items-center gap-2"><span>~.</span> MOST POPULAR</span>
+              </div>
+            )}
+            
+            <div className={`text-[9px] font-bold tracking-[0.3em] uppercase mb-6 ${data.isPopular ? 'text-white/60' : 'text-white/40'}`}>
+              {data.tag}
+            </div>
+            
+            <h3 className="text-3xl font-black mb-2 tracking-tight">{data.title}</h3>
+            <div className={`text-[10px] tracking-[0.2em] font-medium uppercase mb-6 ${data.isPopular ? 'text-white/50' : 'text-white/40'}`}>
+              {data.sub}
+            </div>
+            
+            <p className="text-white/60 mb-10 text-sm leading-relaxed">
+              {data.desc}
+            </p>
+            
+            <ul className="space-y-4 mb-12 flex-grow">
+              {data.bullets.map((bullet: string, idx: number) => (
+                <li key={idx} className="flex items-start gap-4 text-sm text-white/80">
+                  <span className={`w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 ${data.isPopular ? 'bg-naavsoch-gold' : 'bg-blue-500'}`} /> 
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+            
+            <div className="w-full mt-auto">
+              <Link 
+                href={data.btnLink} 
+                className={`w-full py-4 rounded-2xl font-medium text-sm flex items-center justify-center transition-all duration-300 ${
+                  data.isPopular 
+                    ? 'bg-naavsoch-gold text-black hover:bg-white' 
+                    : 'bg-[#111111] text-white border border-white/5 hover:border-white/20 hover:bg-[#1A1A1A]'
+                }`}
+              >
+                {data.btnText}
+              </Link>
+            </div>
+          </SpotlightCard>
         </div>
-      </SpotlightCard>
+      </TiltCard>
     </motion.div>
   );
 

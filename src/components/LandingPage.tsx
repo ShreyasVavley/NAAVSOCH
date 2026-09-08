@@ -11,6 +11,8 @@ import MagneticButton from "./MagneticButton";
 import AnimatedCounter from "./AnimatedCounter";
 import SpotlightCard from "./SpotlightCard";
 import ScrollReveal from "./ScrollReveal";
+import TextScramble from "./TextScramble";
+import StaggeredText from "./StaggeredText";
 
 const wordAnimation = {
   hidden: { y: "100%", opacity: 0 },
@@ -91,14 +93,22 @@ export default function LandingPage() {
           />
         </motion.div>
 
-        {/* Soft Ambient Center Radial Glow */}
+        {/* Soft Ambient Center Radial Glow and Aurora */}
         <motion.div 
           style={{ opacity: bgOpacity }} 
-          className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
+          className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden"
         >
           <div 
-            className="w-[75vw] h-[75vw] max-w-[650px] max-h-[650px] opacity-25 rounded-full blur-[120px] animate-pulse-slow" 
-            style={{ background: "radial-gradient(circle, rgba(64,123,255,0.85) 0%, rgba(64,123,255,0) 70%)" }} 
+            className="absolute w-[60vw] h-[60vw] max-w-[500px] max-h-[500px] opacity-20 rounded-full blur-[100px] animate-aurora-1" 
+            style={{ background: "radial-gradient(circle, rgba(64,123,255,0.8) 0%, rgba(64,123,255,0) 70%)", top: '20%', left: '10%' }} 
+          />
+          <div 
+            className="absolute w-[50vw] h-[50vw] max-w-[400px] max-h-[400px] opacity-20 rounded-full blur-[90px] animate-aurora-2" 
+            style={{ background: "radial-gradient(circle, rgba(221,162,72,0.6) 0%, rgba(221,162,72,0) 70%)", bottom: '10%', right: '15%' }} 
+          />
+          <div 
+            className="absolute w-[70vw] h-[70vw] max-w-[600px] max-h-[600px] opacity-15 rounded-full blur-[120px] animate-aurora-3" 
+            style={{ background: "radial-gradient(circle, rgba(48,96,224,0.7) 0%, rgba(48,96,224,0) 70%)", top: '30%', left: '40%' }} 
           />
         </motion.div>
 
@@ -126,13 +136,13 @@ export default function LandingPage() {
               </motion.span>
             </h1>
 
-            <motion.p custom={5} variants={wordAnimation} className="text-xs sm:text-sm md:text-base text-white/60 mb-4 max-w-2xl mx-auto font-light tracking-[0.2em] sm:tracking-[0.25em] uppercase px-2">
-              Strategy. Creativity. Technology. Growth.
-            </motion.p>
+            <motion.div custom={5} variants={wordAnimation} className="text-xs sm:text-sm md:text-base text-white/60 mb-4 max-w-2xl mx-auto font-light tracking-[0.2em] sm:tracking-[0.25em] uppercase px-2">
+              <TextScramble text="Strategy. Creativity. Technology. Growth." />
+            </motion.div>
 
-            <motion.p custom={6} variants={wordAnimation} className="text-sm sm:text-base md:text-lg text-white/50 mb-8 sm:mb-12 max-w-2xl mx-auto tracking-wide px-2">
-              We help ambitious brands build authority, attract customers and scale through branding, content, websites and performance.
-            </motion.p>
+            <motion.div custom={6} variants={wordAnimation} className="text-sm sm:text-base md:text-lg text-white/50 mb-8 sm:mb-12 max-w-2xl mx-auto tracking-wide px-2">
+              <StaggeredText text="We help ambitious brands build authority, attract customers and scale through branding, content, websites and performance." className="justify-center" />
+            </motion.div>
             
             <motion.div custom={7} variants={wordAnimation} className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-6 sm:mt-8 w-full max-w-xs sm:max-w-none mx-auto">
               <MagneticButton><UiverseButton text="Start Your Project" href="/contact" /></MagneticButton>

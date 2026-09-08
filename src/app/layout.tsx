@@ -65,6 +65,7 @@ export const metadata: Metadata = {
 };
 
 import NextTopLoader from "nextjs-toploader";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function RootLayout({
   children,
@@ -87,6 +88,7 @@ export default function RootLayout({
           speed={200}
           shadow="0 0 10px #407BFF,0 0 5px #407BFF"
         />
+        <CustomCursor />
         
         <div className="fixed inset-0 z-[-1] bg-black" />
         <ScrollProgress />
