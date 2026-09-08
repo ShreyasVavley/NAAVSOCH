@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Search, Compass, Sparkles, Hammer, Rocket } from "lucide-react";
+import SpotlightCard from "@/components/SpotlightCard";
 
 export default function FrameworkPage() {
   const steps = [
@@ -90,26 +91,28 @@ export default function FrameworkPage() {
                   hidden: { opacity: 0, y: 30 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
                 }}
-                className="bg-[#0A0A0A] border border-white/5 rounded-[2rem] p-8 flex flex-col group hover:border-blue-500/30 hover:-translate-y-1.5 hover:shadow-[0_12px_30px_rgba(64,123,255,0.12)] transition-all duration-300 relative"
+                className="bg-[#0A0A0A] border border-white/5 rounded-[2rem] flex flex-col group hover:border-blue-500/30 hover:-translate-y-1.5 hover:shadow-[0_12px_30px_rgba(64,123,255,0.12)] transition-all duration-300 relative overflow-hidden"
               >
-                {/* Header: Icon & Big Number */}
-                <div className="flex items-center justify-between mb-10">
-                  <div className="w-12 h-12 rounded-xl bg-black border border-white/5 flex items-center justify-center shadow-inner group-hover:bg-white/5 transition-colors relative z-10">
-                    <step.icon className={`w-5 h-5 ${step.color}`} />
+                <SpotlightCard className="w-full h-full p-8 flex flex-col">
+                  {/* Header: Icon & Big Number */}
+                  <div className="flex items-center justify-between mb-10">
+                    <div className="w-12 h-12 rounded-xl bg-black border border-white/5 flex items-center justify-center shadow-inner group-hover:bg-white/5 transition-colors relative z-10">
+                      <step.icon className={`w-5 h-5 ${step.color}`} />
+                    </div>
+                    <span className="text-5xl font-black text-white/10 tracking-tight select-none">{step.num}</span>
                   </div>
-                  <span className="text-5xl font-black text-white/10 tracking-tight select-none">{step.num}</span>
-                </div>
 
-                <h3 className="text-2xl font-black tracking-tight mb-6">{step.title}</h3>
-                
-                <ul className="space-y-4">
-                  {step.items.map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-sm text-white/70">
-                      <span className={`w-1.5 h-1.5 rounded-full ${step.dotColor}`} />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                  <h3 className="text-2xl font-black tracking-tight mb-6">{step.title}</h3>
+                  
+                  <ul className="space-y-4">
+                    {step.items.map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-3 text-sm text-white/70">
+                        <span className={`w-1.5 h-1.5 rounded-full ${step.dotColor}`} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </SpotlightCard>
               </motion.div>
             ))}
           </motion.div>

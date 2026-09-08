@@ -142,6 +142,7 @@ export default function Footer() {
 
       {/* Floating WhatsApp Button - Optimized for Android & iOS */}
       <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[90] group">
+        <span className="absolute -inset-1 rounded-full bg-[#25D366]/30 animate-ping pointer-events-none" />
         <div className="absolute inset-0 bg-[#25D366] rounded-full blur opacity-40 group-hover:opacity-60 transition-opacity duration-300" />
         <a 
           href="https://wa.me/919663382836" 

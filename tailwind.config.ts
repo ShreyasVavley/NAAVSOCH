@@ -30,10 +30,20 @@ const config: Config = {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-33.33%)' },
-        }
+        },
+        'pulse-slow': {
+          '0%, 100%': { opacity: '0.22', transform: 'scale(1)' },
+          '50%': { opacity: '0.38', transform: 'scale(1.08)' },
+        },
+        'shimmer-sweep': {
+          '0%': { backgroundPosition: '200% 0' },
+          '100%': { backgroundPosition: '-200% 0' },
+        },
       },
       animation: {
         marquee: 'marquee 30s linear infinite',
+        'pulse-slow': 'pulse-slow 8s ease-in-out infinite',
+        'shimmer-sweep': 'shimmer-sweep 3s ease-in-out infinite',
       }
     },
   },

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
+import MagneticButton from './MagneticButton';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,9 +98,11 @@ export default function Header() {
           {/* Right: CTA & Mobile Toggle */}
           <div className="flex items-center gap-4 shrink-0">
             <div className="hidden lg:block">
-               <Link href="/contact" className="px-6 py-3 xl:px-7 xl:py-3.5 rounded-full bg-gradient-to-r from-[#407BFF] to-[#3060E0] hover:brightness-110 hover:scale-105 active:scale-95 text-white transition-all duration-300 text-[13px] xl:text-[14px] font-bold tracking-wide shadow-lg shadow-blue-500/20 whitespace-nowrap">
-                 Start Project
-               </Link>
+              <MagneticButton>
+                <Link href="/contact" className="px-6 py-3 xl:px-7 xl:py-3.5 rounded-full bg-gradient-to-r from-[#407BFF] to-[#3060E0] hover:brightness-110 hover:scale-105 active:scale-95 text-white transition-all duration-300 text-[13px] xl:text-[14px] font-bold tracking-wide shadow-lg shadow-blue-500/20 whitespace-nowrap inline-block">
+                  Start Project
+                </Link>
+              </MagneticButton>
             </div>
 
             {/* Mobile Hamburger Toggle - 44px HIG target */}

@@ -9,6 +9,8 @@ import UiverseButton from "./UiverseButton";
 import UiverseButtonSecondary from "./UiverseButtonSecondary";
 import MagneticButton from "./MagneticButton";
 import AnimatedCounter from "./AnimatedCounter";
+import SpotlightCard from "./SpotlightCard";
+import ScrollReveal from "./ScrollReveal";
 
 const wordAnimation = {
   hidden: { y: "100%", opacity: 0 },
@@ -95,7 +97,7 @@ export default function LandingPage() {
           className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
         >
           <div 
-            className="w-[75vw] h-[75vw] max-w-[650px] max-h-[650px] opacity-25 rounded-full blur-[120px]" 
+            className="w-[75vw] h-[75vw] max-w-[650px] max-h-[650px] opacity-25 rounded-full blur-[120px] animate-pulse-slow" 
             style={{ background: "radial-gradient(circle, rgba(64,123,255,0.85) 0%, rgba(64,123,255,0) 70%)" }} 
           />
         </motion.div>
@@ -204,25 +206,27 @@ export default function LandingPage() {
       {/* STATS BANNER */}
       <section className="py-12 bg-transparent relative z-10">
         <div className="container mx-auto px-4 max-w-[1400px]">
-          <div className="bg-[#050505] border border-white/5 rounded-3xl overflow-hidden">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y md:divide-y-0 md:divide-x divide-white/5">
-              {[
-                { num: "100+", text: "PROJECTS DELIVERED" },
-                { num: "50+", text: "BRANDS SERVED" },
-                { num: "500+", text: "CAMPAIGNS LAUNCHED" },
-                { num: "1000+", text: "CREATIVE ASSETS" },
-                { num: "3+", text: "YEARS EXPERIENCE" },
-                { num: "24/7", text: "SUPPORT SYSTEM" }
-              ].map((stat, i) => (
-                <div key={i} className="p-8 md:p-10 flex flex-col justify-center">
-                  <h3 className="text-4xl md:text-5xl font-black mb-4 tracking-tight text-blue-500">
-                    <AnimatedCounter value={stat.num} />
-                  </h3>
-                  <p className="text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] text-white/40 uppercase font-bold">{stat.text}</p>
-                </div>
-              ))}
+          <ScrollReveal>
+            <div className="bg-[#050505] border border-white/5 rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y md:divide-y-0 md:divide-x divide-white/5">
+                {[
+                  { num: "100+", text: "PROJECTS DELIVERED" },
+                  { num: "50+", text: "BRANDS SERVED" },
+                  { num: "500+", text: "CAMPAIGNS LAUNCHED" },
+                  { num: "1000+", text: "CREATIVE ASSETS" },
+                  { num: "3+", text: "YEARS EXPERIENCE" },
+                  { num: "24/7", text: "SUPPORT SYSTEM" }
+                ].map((stat, i) => (
+                  <div key={i} className="p-8 md:p-10 flex flex-col justify-center">
+                    <h3 className="text-4xl md:text-5xl font-black mb-4 tracking-tight text-blue-500">
+                      <AnimatedCounter value={stat.num} />
+                    </h3>
+                    <p className="text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] text-white/40 uppercase font-bold">{stat.text}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -231,40 +235,44 @@ export default function LandingPage() {
       <section className="py-24 bg-transparent relative z-10">
         <div className="container mx-auto px-4 max-w-[1400px]">
           
-          <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-16 gap-8">
-            <div>
-              <p className="text-[10px] tracking-[0.3em] text-white/40 uppercase font-bold mb-6">Our Work</p>
-              <h2 className="text-5xl md:text-7xl font-display font-bold leading-[1.2] tracking-tight">
-                Case <span className="text-naavsoch-gold">Studies.</span>
-              </h2>
+          <ScrollReveal>
+            <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-16 gap-8">
+              <div>
+                <p className="text-[10px] tracking-[0.3em] text-white/40 uppercase font-bold mb-6">Our Work</p>
+                <h2 className="text-5xl md:text-7xl font-display font-bold leading-[1.2] tracking-tight">
+                  Case <span className="text-naavsoch-gold">Studies.</span>
+                </h2>
+              </div>
+              <p className="text-white/60 text-lg max-w-lg mb-2">
+                Every project is a transformation story. Challenge &rarr; Strategy &rarr; Execution &rarr; Outcome.
+              </p>
             </div>
-            <p className="text-white/60 text-lg max-w-lg mb-2">
-              Every project is a transformation story. Challenge &rarr; Strategy &rarr; Execution &rarr; Outcome.
-            </p>
-          </div>
 
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-12">
-            {["ALL", "BRANDING", "WEBSITE", "PERFORMANCE MARKETING", "SOCIAL MEDIA"].map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`relative px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold tracking-[0.12em] sm:tracking-[0.15em] transition-colors border ${
-                  activeFilter === filter 
-                    ? "text-white border-transparent" 
-                    : "border-white/10 bg-transparent text-white/50 hover:text-white hover:bg-white/5"
-                }`}
-              >
-                {activeFilter === filter && (
-                  <motion.span
-                    layoutId="activeFilterPill"
-                    className="absolute inset-0 bg-gradient-to-r from-[#407BFF] to-[#3060E0] rounded-full -z-10 shadow-lg shadow-blue-500/25"
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                  />
-                )}
-                {filter}
-              </button>
-            ))}
-          </div>
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-12">
+              {["ALL", "BRANDING", "WEBSITE", "PERFORMANCE MARKETING", "SOCIAL MEDIA"].map((filter) => (
+                <button
+                  key={filter}
+                  onClick={() => setActiveFilter(filter)}
+                  className={`relative px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold tracking-[0.12em] sm:tracking-[0.15em] transition-colors border ${
+                    activeFilter === filter 
+                      ? "text-white border-transparent" 
+                      : "border-white/10 bg-transparent text-white/50 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  {activeFilter === filter && (
+                    <motion.span
+                      layoutId="activeFilterPill"
+                      className="absolute inset-0 bg-gradient-to-r from-[#407BFF] via-[#5B8EFF] to-[#3060E0] rounded-full -z-10 shadow-lg shadow-blue-500/25 overflow-hidden"
+                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    >
+                      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] animate-shimmer-sweep pointer-events-none" />
+                    </motion.span>
+                  )}
+                  {filter}
+                </button>
+              ))}
+            </div>
+          </ScrollReveal>
 
           <motion.div 
             layout
@@ -282,20 +290,22 @@ export default function LandingPage() {
                   key={item.title}
                   className="group relative overflow-hidden rounded-[2rem] bg-[#0A0A0A] border border-white/5 hover:border-blue-500/30 aspect-[4/3] flex flex-col transition-all duration-500 hover:shadow-[0_12px_35px_rgba(64,123,255,0.15)]"
                 >
-                  <Image src={item.img} alt={item.title} fill className="object-cover transition-all duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[black] via-[black]/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-75" />
-                  
-                  <div className="absolute top-6 left-6 z-10 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full">
-                    <span className="text-[10px] font-bold tracking-[0.2em] text-naavsoch-gold uppercase">{item.category}</span>
-                  </div>
+                  <SpotlightCard className="w-full h-full">
+                    <Image src={item.img} alt={item.title} fill className="object-cover transition-all duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[black] via-[black]/40 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-75" />
+                    
+                    <div className="absolute top-6 left-6 z-10 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full">
+                      <span className="text-[10px] font-bold tracking-[0.2em] text-naavsoch-gold uppercase">{item.category}</span>
+                    </div>
 
-                  <div className="absolute bottom-0 left-0 w-full p-8 z-10">
-                    <h3 className="text-3xl font-black mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">{item.title}</h3>
-                    <p className="text-white/70 mb-6 text-sm">{item.subtitle}</p>
-                    <Link href="/work" className="text-[11px] font-bold tracking-[0.2em] uppercase text-white/80 hover:text-white flex items-center gap-2 group/link">
-                      Read Story <span className="font-sans text-sm group-hover/link:translate-x-1.5 group-hover/link:-translate-y-0.5 transition-transform duration-300">↗</span>
-                    </Link>
-                  </div>
+                    <div className="absolute bottom-0 left-0 w-full p-8 z-10">
+                      <h3 className="text-3xl font-black mb-2 tracking-tight group-hover:text-blue-400 transition-colors duration-300">{item.title}</h3>
+                      <p className="text-white/70 mb-6 text-sm">{item.subtitle}</p>
+                      <Link href="/work" className="text-[11px] font-bold tracking-[0.2em] uppercase text-white/80 hover:text-white flex items-center gap-2 group/link">
+                        Read Story <span className="font-sans text-sm group-hover/link:translate-x-1.5 group-hover/link:-translate-y-0.5 transition-transform duration-300">↗</span>
+                      </Link>
+                    </div>
+                  </SpotlightCard>
                 </motion.div>
                 ))}
               </AnimatePresence>
